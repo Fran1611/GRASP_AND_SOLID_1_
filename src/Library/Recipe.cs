@@ -38,7 +38,7 @@ namespace Full_GRASP_And_SOLID.Library
             Console.WriteLine("el precio de produccion es " + GetProductionCost());
         }
         
-        // la quanty
+        // Método para obtener el costo de producción.
         public double GetProductionCost()
         {   
         double costoFinal = 0;
