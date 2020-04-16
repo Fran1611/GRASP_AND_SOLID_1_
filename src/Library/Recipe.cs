@@ -50,7 +50,7 @@ namespace Full_GRASP_And_SOLID.Library
         // Método para obtener el costo de producción.
         public double GetProductionCost()
         {   
-        double costoFinal = 0;
+            double costoFinal = 0;
             
             foreach(Step step in steps)
             {
