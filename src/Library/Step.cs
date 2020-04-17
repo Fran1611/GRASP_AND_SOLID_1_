@@ -8,11 +8,6 @@ namespace Full_GRASP_And_SOLID.Library
 {
     public class Step
     {
-        private Product input;
-        private double quantity;
-        private int time;
-        private Equipment equipment;
-
         public Step(Product input, double quantity, Equipment equipment, int time)
         {
             this.Quantity = quantity;
@@ -28,5 +23,6 @@ namespace Full_GRASP_And_SOLID.Library
         public int Time { get; set; }
 
         public Equipment Equipment { get; set; }
+
     }
 }

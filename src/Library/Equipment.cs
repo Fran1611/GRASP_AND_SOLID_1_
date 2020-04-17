@@ -8,9 +8,6 @@ namespace Full_GRASP_And_SOLID.Library
 {
     public class Equipment
     {
-        private string description;
-        private double hourlyCost;
-
         public Equipment(string description, double hourlyCost)
         {
             this.Description = description;
