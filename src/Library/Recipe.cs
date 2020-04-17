@@ -21,7 +21,7 @@ namespace Full_GRASP_And_SOLID.Library
     public class Recipe
     {
         private ArrayList steps = new ArrayList();
-
+        private Product finalProduct;
         public Product FinalProduct { get; set; }
 
         public void AddStep(Step step)
@@ -36,27 +36,32 @@ namespace Full_GRASP_And_SOLID.Library
 
         public void PrintRecipe()
         {
-            
+
             Console.WriteLine($"Receta de {this.FinalProduct.Description}:");
             foreach (Step step in this.steps)
             {
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
-                
+
             }
-            Console.WriteLine("el precio de produccion es " + GetProductionCost());
+            Console.WriteLine($"Costo total de producción: {this.GetProductionCost()}");
         }
-        
-        // Método para obtener el costo de producción.
+
+        /* Esta clase tiene toda la información necesaria para implementar la responsabilidad de calcular el costo total de producción
+        por lo tanto es la experta en información. Lo que estamos haciendo es aplicar el patrón experto.*/
+
         public double GetProductionCost()
-        {   
-            double costoFinal = 0;
-            
-            foreach(Step step in steps)
+        {
+            double costoInsumos = 0;
+            double costoEquipamiento = 0;
+
+            foreach (Step paso in steps)
             {
-                costoFinal += (step.Quantity/1000 * step.Input.UnitCost) + (step.Time/3600 * (step.Equipment.HourlyCost));
+                costoInsumos += paso.Input.UnitCost * paso.Quantity;
+                costoEquipamiento += paso.Equipment.HourlyCost * paso.Time;
             }
-            return costoFinal;
+
+            return costoInsumos + costoEquipamiento;
         }
     }
 }

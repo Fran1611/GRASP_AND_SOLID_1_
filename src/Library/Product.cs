@@ -8,6 +8,9 @@ namespace Full_GRASP_And_SOLID.Library
 {
     public class Product
     {
+        private string description;
+        private double unitCost;
+        
         public Product(string description, double unitCost)
         {
             this.Description = description;
